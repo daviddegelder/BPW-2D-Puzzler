@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,13 @@ using UnityEngine.Tilemaps;
  {
      public Tilemap groundTilemap;
      public Tilemap collisionTilemap;
-     
-    void Update()
+
+     private void Start()
+     {
+         Physics2D.queriesHitTriggers = false;
+     }
+
+     void Update()
     {
         
         if (Input.GetKeyDown("w")) { MovePlayer(Vector3.up); }
